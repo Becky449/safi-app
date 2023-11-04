@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @agrovet %>
+
+<div>
+  <%= link_to "Edit this agrovet", edit_agrovet_path(@agrovet) %> |
+  <%= link_to "Back to agrovets", agrovets_path %>
+
+  <%= button_to "Destroy this agrovet", @agrovet, method: :delete %>
+</div>

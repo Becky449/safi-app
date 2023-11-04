@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @data_entry %>
+
+<div>
+  <%= link_to "Edit this data entry", edit_data_entry_path(@data_entry) %> |
+  <%= link_to "Back to data entries", data_entries_path %>
+
+  <%= button_to "Destroy this data entry", @data_entry, method: :delete %>
+</div>

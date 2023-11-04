@@ -1,0 +1,61 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 mx-auto text-center">
+      <h5><%= current_user.firstname %></h5>
+      <h3><%= @agrovet.name %></h3>
+      <p><strong>Owner's Phone: </strong>0<%= @agrovet.owner_phone %></p>
+      <p><strong>Owner's Name: </strong><%= @agrovet.owner_name %></p>
+      <p><strong>Location: </strong><%= @agrovet.location %></p>
+
+      <% if @latest_data_entry.present? %>
+        <!-- Display information from the latest form entry here -->
+        <p class="entry-date"><strong>Entry Date:</strong> <%= @latest_data_entry.created_at.strftime("%d-%m-%Y at %H:%M:%S") %></p>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Product</th>
+              <th>Quantity</th>
+              <th>Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><%= @products.first.name %></td>
+              <td><%= (@latest_data_entry&.product_1_quantity || 0) %></td>
+              <td><%= @latest_product_1_data_entry_total %></td>
+            </tr>
+            <tr>
+              <td><%= @products.second.name %></td>
+              <td><%= (@latest_data_entry&.product_2_quantity || 0) %></td>
+              <td><%= @latest_product_2_data_entry_total %></td>
+            </tr>
+            <tr>
+              <td><%= @products.third.name %></td>
+              <td><%= (@latest_data_entry&.product_3_quantity || 0) %></td>
+              <td><%= @latest_product_1_data_entry_total %></td>
+            </tr>
+            <tr>
+              <td><%= @products.fourth.name %></td>
+              <td><%= (@latest_data_entry&.product_4_quantity || 0) %></td>
+              <td><%= @latest_product_1_data_entry_total %></td>
+            </tr>
+          </tbody>
+        </table>
+        <p><strong>Total Amount:</strong> Ksh.<%= @latest_total_data_entry_amount %></p>
+        <p><strong>Money Paid Today:</strong> Ksh.<%= @latest_data_entry.money_paid %></p>
+        <p><strong>Money Owed Today:</strong> Ksh.<%= @latest_data_entry.money_owed %></p>
+        <%= link_to "Orders", placeorder_agrovet_path(@agrovet), class: "btn btn-success" %>
+        <%= link_to "Update Agrovet Info", new_data_entry_path(agrovet_id: @agrovet.id), class: "btn btn-success" %>
+        <!-- Add more information from the form entry as needed -->
+      <% else %>
+        <p>No form entries available for this agrovet.</p>
+        <%= link_to "Place Order", new_order_path(agrovet_id: @agrovet.id), class: "btn btn-success" %>
+        <%= link_to "Create Form Entry", new_data_entry_path(agrovet_id: @agrovet.id), class: "btn btn-success" %>
+      <% end %>
+
+      <button type="button" class="btn btn-sales-rep-home mt-4" style="background: brown;">
+        <%= link_to "Sales Rep Home", pages_salesrep_path, style: "color: #fff; text-decoration: none; font-weight: bold;" %>
+      </button>
+    </div>
+  </div>
+</div>

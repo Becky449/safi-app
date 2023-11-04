@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @user_agrovet %>
+
+<div>
+  <%= link_to "Edit this user agrovet", edit_user_agrovet_path(@user_agrovet) %> |
+  <%= link_to "Back to user agrovets", user_agrovets_path %>
+
+  <%= button_to "Destroy this user agrovet", @user_agrovet, method: :delete %>
+</div>

@@ -1,0 +1,46 @@
+<div id="<%= dom_id(order) %>">
+  <p>
+    <strong>Agrovet:</strong>
+    <%= order.agrovet_id %>
+  </p>
+
+  <p>
+    <strong>Order number:</strong>
+    <%= order.id %>
+  </p>
+
+  <p>
+    <strong><%= @products.first.name %>:</strong>
+    <%= order.product_1_quantity %>
+  </p>
+
+  <p>
+    <strong><%= @products.second.name %>:</strong>
+    <%= order.product_2_quantity %>
+  </p>
+
+  <p>
+    <strong><%= @products.third.name %>:</strong>
+    <%= order.product_3_quantity %>
+  </p>
+
+  <p>
+    <strong><%= @products.fourth.name %>:</strong>
+    <%= order.product_4_quantity %>
+  </p>
+
+  <p>
+    <strong>Total amount:</strong>
+    <%= order.total_amount %>
+  </p>
+
+  <p>
+    <strong>Status:</strong>
+    <%= order.status %>
+  </p>
+
+  <p>
+    <strong>Created at:</strong>
+    <%= order.created_at %>
+  </p>
+</div>

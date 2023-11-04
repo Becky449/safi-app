@@ -1,0 +1,57 @@
+<%= form_with(model: order) do |form| %>
+  <% if order.errors.any? %>
+    <div class="alert alert-danger">
+      <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
+
+      <ul>
+        <% order.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.hidden_field :agrovet_id, value: @agrovet.id %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :order_number, style: "display: block", class: "form-label" %>
+    <%= form.text_field :order_number, readonly: true, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :product_1_quantity, @products.first.name, style: "display: block", class: "form-label" %>
+    <%= form.number_field :product_1_quantity, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :product_2_quantity, @products.second.name, style: "display: block", class: "form-label" %>
+    <%= form.number_field :product_2_quantity, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :product_3_quantity, @products.third.name, style: "display: block", class: "form-label" %>
+    <%= form.number_field :product_3_quantity, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :product_4_quantity, @products.fourth.name, style: "display: block", class: "form-label" %>
+    <%= form.number_field :product_4_quantity, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :total_amount, style: "display: block", class: "form-label" %>
+    <%= form.number_field :total_amount, readonly: true, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :status, style: "display: block", class: "form-label" %>
+    <%= form.select :status, Order::STATUSES, { include_blank: 'Select Status' }, class: "form-select" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.submit "Save Order", class: "btn btn-success" %>
+  </div>
+</div>
+<% end %>

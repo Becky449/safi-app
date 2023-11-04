@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @order %>
+
+
+
+
+
+<%# <% if @order.WHERE(Order.status == Received)%>
+<div>
+<% unless @order.status == 'Received' %>
+  <%= link_to "Edit this order", edit_order_path(@order) %>
+<% end %>
+
+  
+</div>

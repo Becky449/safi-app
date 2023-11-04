@@ -1,0 +1,50 @@
+<%= form_with(model: data_entry, class: "my-4") do |form| %>
+  <% if data_entry.errors.any? %>
+    <div class="alert alert-danger">
+      <h2><%= pluralize(data_entry.errors.count, "error") %> prohibited this data_entry from being saved:</h2>
+      <ul>
+        <% data_entry.errors.full_messages.each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.hidden_field :agrovet_id, value: @agrovet.id %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :product_1_quantity, @products.first.name, class: "form-label" %>
+    <%= form.number_field :product_1_quantity, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :product_2_quantity, @products.second.name, class: "form-label" %>
+    <%= form.number_field :product_2_quantity, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :product_3_quantity, @products.third.name, class: "form-label" %>
+    <%= form.number_field :product_3_quantity, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :product_4_quantity, @products.fourth.name, class: "form-label" %>
+    <%= form.number_field :product_4_quantity, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :money_paid, class: "form-label" %>
+    <%= form.number_field :money_paid, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :money_owed, class: "form-label" %>
+    <%= form.number_field :money_owed, class: "form-control" %>
+  </div>
+
+  <div class="text-center">
+    <%= form.submit "Save", class: "btn btn-danger btn-lg" %>
+  </div>
+<% end %>

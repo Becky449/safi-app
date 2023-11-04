@@ -1,0 +1,61 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 mx-auto text-center">
+      <h5>Welcome, <%= current_user.firstname %></h5>
+      <h3><%= @agrovet.name %></h3>
+      <p><strong>Owner's Phone: </strong>0<%= @agrovet.owner_phone %></p>
+      <p><strong>Owner's Name: </strong><%= @agrovet.owner_name %></p>
+      <p><strong>Location: </strong><%= @agrovet.location %></p>
+
+      <% if @latest_order.present? %>
+        <!-- Display information from the latest order here -->
+        <p class="order-date"><strong>Order Date:</strong> <%= @latest_order.created_at.strftime("%d-%m-%Y at %H:%M:%S") %></p>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Product</th>
+              <th>Quantity</th>
+              <th>Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><%= @products.first.name %></td>
+              <td><%= @latest_order.product_1_quantity %></td>
+              <td><%= @latest_product_1_order_total %></td>
+            </tr>
+            <tr>
+              <td><%= @products.second.name %></td>
+              <td><%= @latest_order.product_2_quantity %></td>
+              <td><%= @latest_product_2_order_total %></td>
+            </tr>
+            <tr>
+                <td><%= @products.third.name %></td>
+                <td><%= @latest_order.product_3_quantity %></td>
+                <td><%= @latest_product_3_order_total %></td>
+            </tr>
+            <tr>
+                <td><%= @products.fourth.name %></td>
+                <td><%= @latest_order.product_4_quantity %></td>
+                <td><%= @latest_product_4_order_total %></td>
+            </tr>
+            </tbody>
+        </table>
+        <p><strong>Total Amount:</strong> Ksh.<%= @latest_total_order_amount %></p>
+        <p><strong>Status:</strong> <%= @latest_order.status %></p>
+        <p><strong>Order Number:</strong> <%= @latest_order.id %></p>
+        <% if @latest_order.status != 'Received' %>
+            <%= link_to "Update Order", edit_order_path(@latest_order), class: "btn btn-success" %>
+        <% end %>
+        <%= link_to "Place Order", new_order_path(agrovet_id: @agrovet.id), class: "btn btn-success" %>
+        <%= link_to "View All Orders", allorders_agrovet_path(@agrovet), class: "btn btn-success" %><br>
+        <button type="button" class="btn btn-sales-rep-home mt-4" style="background: brown;">
+        <%= link_to "Go Back", agrovetinfo_agrovet_path(@agrovet.id), style: "color: #fff; text-decoration: none; font-weight: bold;" %>
+      </button>
+        <% else %>
+        <p>No Orders available for this agrovet.</p>
+        <%= link_to "Place Order", new_order_path(agrovet_id: @agrovet.id), class: "btn btn-success" %>
+        <% end %>
+    </div>
+    </div>
+</div>
