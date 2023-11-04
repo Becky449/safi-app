@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  agrovet: one
+  order_number: 1
+  product_1_quantity: 1
+  product_2_quantity: 1
+  product_3_quantity: 1
+  product_4_quantity: 1
+  total_amount: 1
+  status: MyString
+
+two:
+  agrovet: two
+  order_number: 1
+  product_1_quantity: 1
+  product_2_quantity: 1
+  product_3_quantity: 1
+  product_4_quantity: 1
+  total_amount: 1
+  status: MyString
