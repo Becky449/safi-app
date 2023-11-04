@@ -1,6 +1,6 @@
 
 class Ability
-  include CanCanCan::Ability
+  include CanCan::Ability
 
   def initialize(user)
     user ||= User.new # Guest user
