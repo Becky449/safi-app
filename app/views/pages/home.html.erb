@@ -1,0 +1,32 @@
+<img src="https://safiorganics.co.ke/wp-content/uploads/2021/07/cropped-Screen_Shot_2016-08-02_at_3.36.24_PM_fxegkb-300x60-1-1.png">
+<%# <h5>Sales Monitoring App</h5> %>
+
+<% if current_user %>
+    <p>Welcome <%= current_user.firstname + ' ' + current_user.lastname %></p>
+    <p>You are a <%= current_user.role %></p>
+    <button type="button" class="btn btn-success">
+    <%= link_to "Sales Rep home", pages_salesrep_path, style: "color: #fff; text-decoration: none; font-weight: bold;" %>
+</button>
+<% if current_user.admin? %>
+    <p>There are <%= User.count %> users.</p>
+    <button type="button" class="btn btn-success">
+    <%= link_to "Admin Dashboard", pages_admin_path, style: "color: #fff; text-decoration: none; font-weight: bold;" %>
+    </button>
+<% end %>
+
+<% if current_user.manager? %>
+    <button type="button" class="btn btn-success">
+    <%= link_to "Manager Dashboard", pages_manager_path, style: "color: #fff; text-decoration: none; font-weight: bold;" %>
+    </button>
+    <% end %>
+
+    <%= link_to "Sign out", destroy_user_session_path, 'data-turbo-method': :delete %>
+<% else %>
+    <p>You are not signed in.</p>
+    <button type="button" class="btn btn-success">
+    <%= link_to "Sign up!", new_user_registration_path, style: "color: #fff; text-decoration; none; font-weight: bold;" %>
+    </button>
+    <button type="button" class="btn btn-success">
+    <%= link_to "Sign in", new_user_session_path, style: "color: #fff; text-decoration: none; font-weight: bold;" %>
+    </button>
+<% end %>

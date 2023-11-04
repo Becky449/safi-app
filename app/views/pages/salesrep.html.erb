@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="text-center mb-4">
+        <!-- <h1>Sales Rep</h1> -->
+        <% if current_user %>
+            <p class="welcome-text">Welcome, <%= current_user.firstname + ' ' + current_user.lastname %></p>
+            <%= link_to "Add Agrovet +", new_agrovet_path, style: "color: #097969; text-decoration: none; font-weight: bold; font-size:20px"%>
+            <!-- Iterate through @agrovets and create links -->
+            <% @agrovets.each do |agrovet| %>
+            <div class="card agrovet-card">
+                <div class="card-body">
+                <h5 class="card-title"><%= agrovet.name %></h5>
+                <%= link_to "Visit Agrovet", agrovetinfo_agrovet_path(agrovet), class: "btn btn-success btn-sm visit-agrovet-btn" %>
+                </div>
+            </div>
+            <% end %>
+            <%= link_to "Sign out", destroy_user_session_path, 'data-turbo-method': :delete, class: "btn btn-secondary btn-logout" %>
+        <% end %>
+        </div>
+    </div>
+    </div>
+</div>
