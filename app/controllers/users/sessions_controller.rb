@@ -31,6 +31,9 @@ end
   # DELETE /resource/sign_out
   # def destroy
   #   super
+  #   return unless request.format.html?
+
+  #   redirect_to root_path
   # end
 
   # protected

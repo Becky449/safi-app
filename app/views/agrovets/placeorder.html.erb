@@ -39,6 +39,21 @@
                 <td><%= @latest_order.product_4_quantity %></td>
                 <td><%= @latest_product_4_order_total %></td>
             </tr>
+            <tr>
+                <td><%= @products.fifth.name %></td>
+                <td><%= @latest_order.product_5_quantity %></td>
+                <td><%= @latest_product_5_order_total %></td>
+            </tr>
+            <tr>
+                <td><%= @products.find(6).name %></td>
+                <td><%= @latest_order.product_6_quantity %></td>
+                <td><%= @latest_product_6_order_total %></td>
+            </tr>
+            <tr>
+                <td><%= @products.find(7).name %></td>
+                <td><%= @latest_order.product_7_quantity %></td>
+                <td><%= @latest_product_7_order_total %></td>
+            </tr>
             </tbody>
         </table>
         <p><strong>Total Amount:</strong> Ksh.<%= @latest_total_order_amount %></p>

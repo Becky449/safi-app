@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_25_080902) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_06_045836) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -36,6 +36,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_25_080902) do
     t.integer "money_owed"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "product_5_quantity"
+    t.integer "product_6_quantity"
+    t.integer "product_7_quantity"
     t.index ["agrovet_id"], name: "index_data_entries_on_agrovet_id"
   end
 
@@ -50,6 +53,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_25_080902) do
     t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "product_5_quantity"
+    t.integer "product_6_quantity"
+    t.integer "product_7_quantity"
     t.index ["agrovet_id"], name: "index_orders_on_agrovet_id"
   end
 
@@ -59,8 +65,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_25_080902) do
     t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "agrovet_id"
-    t.index ["agrovet_id"], name: "index_products_on_agrovet_id"
   end
 
   create_table "user_agrovets", force: :cascade do |t|
@@ -90,7 +94,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_25_080902) do
   add_foreign_key "agrovets", "users"
   add_foreign_key "data_entries", "agrovets"
   add_foreign_key "orders", "agrovets"
-  add_foreign_key "products", "agrovets"
   add_foreign_key "user_agrovets", "agrovets"
   add_foreign_key "user_agrovets", "users"
 end

@@ -40,6 +40,20 @@
     <%= form.number_field :product_4_quantity, class: "form-control" %>
   </div>
 
+    <div class="mb-3">
+    <%= form.label :product_5_quantity, @products.fifth.name, style: "display: block", class: "form-label" %>
+    <%= form.number_field :product_5_quantity, class: "form-control" %>
+  </div>
+
+    <div class="mb-3">
+    <%= form.label :product_6_quantity, @products.find(6).name, style: "display: block", class: "form-label" %>
+    <%= form.number_field :product_6_quantity, class: "form-control" %>
+  </div>
+    <div class="mb-3">
+    <%= form.label :product_7_quantity, @products.find(7).name, style: "display: block", class: "form-label" %>
+    <%= form.number_field :product_7_quantity, class: "form-control" %>
+  </div>
+
   <div class="mb-3">
     <%= form.label :total_amount, style: "display: block", class: "form-label" %>
     <%= form.number_field :total_amount, readonly: true, class: "form-control" %>

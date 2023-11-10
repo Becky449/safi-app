@@ -30,6 +30,21 @@
   </p>
 
   <p>
+    <strong><%= @products.fifth.name %>:</strong>
+    <%= order.product_5_quantity %>
+  </p>
+
+  <p>
+    <strong><%= @products.find(6).name %>:</strong>
+    <%= order.product_6_quantity %>
+  </p>
+
+  <p>
+    <strong><%= @products.find(7).name %>:</strong>
+    <%= order.product_7_quantity %>
+  </p>
+
+  <p>
     <strong>Total amount:</strong>
     <%= order.total_amount %>
   </p>

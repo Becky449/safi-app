@@ -66,7 +66,16 @@ class AgrovetsController < ApplicationController
     @latest_product_2_data_entry_total = (@products.second&.price || 0) * (@latest_data_entry&.product_2_quantity || 0)
     @latest_product_3_data_entry_total = (@products.third&.price || 0) * (@latest_data_entry&.product_3_quantity || 0)
     @latest_product_4_data_entry_total = (@products.fourth&.price || 0) * (@latest_data_entry&.product_4_quantity || 0)
-    @latest_total_data_entry_amount = @latest_product_1_data_entry_total + @latest_product_2_data_entry_total + @latest_product_3_data_entry_total + @latest_product_4_data_entry_total
+    @latest_product_5_data_entry_total = (@products.fifth&.price || 0) * (@latest_data_entry&.product_5_quantity || 0)
+    @latest_product_6_data_entry_total = (@products.find(6)&.price || 0) * (@latest_data_entry&.product_6_quantity || 0)
+    @latest_product_7_data_entry_total = (@products.find(7)&.price || 0) * (@latest_data_entry&.product_7_quantity || 0)
+    @latest_total_data_entry_amount = @latest_product_1_data_entry_total + 
+    @latest_product_2_data_entry_total + 
+    @latest_product_3_data_entry_total +
+    @latest_product_4_data_entry_total +
+    @latest_product_5_data_entry_total +
+    @latest_product_6_data_entry_total +
+    @latest_product_7_data_entry_total
   end
 
   def placeorder
@@ -77,7 +86,16 @@ class AgrovetsController < ApplicationController
     @latest_product_2_order_total = (@products.second&.price || 0) * (@latest_order&.product_2_quantity || 0)
     @latest_product_3_order_total = (@products.third&.price || 0) * (@latest_order&.product_3_quantity || 0)
     @latest_product_4_order_total = (@products.fourth&.price || 0) * (@latest_order&.product_4_quantity || 0)
-    @latest_total_order_amount = @latest_product_1_order_total + @latest_product_2_order_total + @latest_product_3_order_total + @latest_product_4_order_total
+    @latest_product_5_order_total = (@products.fifth&.price || 0) * (@latest_order&.product_5_quantity || 0)
+    @latest_product_6_order_total = (@products.find(6)&.price || 0) * (@latest_order&.product_6_quantity || 0)
+    @latest_product_7_order_total = (@products.find(7)&.price || 0) * (@latest_order&.product_7_quantity || 0)
+    @latest_total_order_amount = @latest_product_1_order_total + 
+    @latest_product_2_order_total + 
+    @latest_product_3_order_total + 
+    @latest_product_4_order_total +
+    @latest_product_5_order_total +
+    @latest_product_6_order_total +
+    @latest_product_7_order_total
   end
 
   def allorders

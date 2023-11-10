@@ -32,12 +32,28 @@
             <tr>
               <td><%= @products.third.name %></td>
               <td><%= (@latest_data_entry&.product_3_quantity || 0) %></td>
-              <td><%= @latest_product_1_data_entry_total %></td>
+              <td><%= @latest_product_3_data_entry_total %></td>
             </tr>
             <tr>
               <td><%= @products.fourth.name %></td>
               <td><%= (@latest_data_entry&.product_4_quantity || 0) %></td>
-              <td><%= @latest_product_1_data_entry_total %></td>
+              <td><%= @latest_product_4_data_entry_total %></td>
+            </tr>
+
+            <tr>
+              <td><%= @products.fifth.name %></td>
+              <td><%= (@latest_data_entry&.product_5_quantity || 0) %></td>
+              <td><%= @latest_product_5_data_entry_total %></td>
+            </tr>
+            <tr>
+              <td><%= @products.find(6).name %></td>
+              <td><%= (@latest_data_entry&.product_6_quantity || 0) %></td>
+              <td><%= @latest_product_6_data_entry_total %></td>
+            </tr>
+            <tr>
+              <td><%= @products.find(7).name %></td>
+              <td><%= (@latest_data_entry&.product_7_quantity || 0) %></td>
+              <td><%= @latest_product_7_data_entry_total %></td>
             </tr>
           </tbody>
         </table>

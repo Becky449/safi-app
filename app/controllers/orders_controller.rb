@@ -17,7 +17,16 @@ class OrdersController < ApplicationController
     @product_2_order_total = (@products.second&.price || 0) * (@order&.product_2_quantity || 0)
     @product_3_order_total = (@products.third&.price || 0) * (@order&.product_3_quantity || 0)
     @product_4_order_total = (@products.fourth&.price || 0) * (@order&.product_4_quantity || 0)
-    @total_order_amount = @product_1_order_total + @product_2_order_total + @product_3_order_total + @product_4_order_total
+    @product_5_order_total = (@products.fifth&.price || 0) * (@order&.product_5_quantity || 0)
+    @product_6_order_total = (@products.find(6)&.price || 0) * (@order&.product_6_quantity || 0)
+    @product_7_order_total = (@products.find(7)&.price || 0) * (@order&.product_7_quantity || 0)
+    @total_order_amount = @product_1_order_total + 
+    @product_2_order_total + 
+    @product_3_order_total +
+    @product_4_order_total +
+    @product_5_order_total +
+    @product_6_order_total +
+    @product_7_order_total 
   
   end
 
@@ -96,6 +105,9 @@ class OrdersController < ApplicationController
     total += @product_2_quantity * @products.second&.price
     total += @product_3_quantity * @products.third&.price
     total += @product_4_quantity * @products.fourth&.price
+    total += @product_5_quantity * @products.fifth&.price
+    total += @product_6_quantity * @products.sixth&.price
+    total += @product_7_quantity * @products.seventh&.price
 
     return total
   end
@@ -108,7 +120,14 @@ class OrdersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def order_params
-      params.require(:order).permit(:agrovet_id, :order_number, :product_1_quantity, :product_2_quantity, :product_3_quantity, :product_4_quantity, :status)
+      params.require(:order).permit(:agrovet_id, :order_number, 
+      :product_1_quantity, :product_2_quantity, 
+      :product_3_quantity, :product_4_quantity, 
+      :product_5_quantity, 
+      :product_6_quantity, 
+      :product_7_quantity,
+      :total_amount, 
+      :status)
     end
 
     
