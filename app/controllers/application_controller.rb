@@ -27,7 +27,7 @@ class ApplicationController < ActionController::Base
         end
     end
 
-    def set_time_zone
-        Time.use_zone('Nairobi') { yield }
-    end
+    # def set_time_zone
+    #     Time.use_zone('Nairobi') { yield }
+    # end
 end
