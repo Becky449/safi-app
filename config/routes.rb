@@ -12,6 +12,7 @@ resources :agrovets do
   resources :orders, only: [:index, :show, :new, :create]
   member do
     get 'agrovetinfo'
+    get 'agrovetsinfo'
     get 'placeorder'
     get 'allorders'
     

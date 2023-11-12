@@ -77,6 +77,26 @@ class AgrovetsController < ApplicationController
     @latest_product_6_data_entry_total +
     @latest_product_7_data_entry_total
   end
+  
+  def agrovetsinfo
+    @agrovet = Agrovet.find(params[:id])
+    @latest_data_entry = @agrovet.data_entries.order(created_at: :desc).first
+    @products = Product.limit(7)
+    @latest_product_1_data_entry_total = (@products.first&.price || 0) * (@latest_data_entry&.product_1_quantity || 0)
+    @latest_product_2_data_entry_total = (@products.second&.price || 0) * (@latest_data_entry&.product_2_quantity || 0)
+    @latest_product_3_data_entry_total = (@products.third&.price || 0) * (@latest_data_entry&.product_3_quantity || 0)
+    @latest_product_4_data_entry_total = (@products.fourth&.price || 0) * (@latest_data_entry&.product_4_quantity || 0)
+    @latest_product_5_data_entry_total = (@products.fifth&.price || 0) * (@latest_data_entry&.product_5_quantity || 0)
+    @latest_product_6_data_entry_total = (@products.find(6)&.price || 0) * (@latest_data_entry&.product_6_quantity || 0)
+    @latest_product_7_data_entry_total = (@products.find(7)&.price || 0) * (@latest_data_entry&.product_7_quantity || 0)
+    @latest_total_data_entry_amount = @latest_product_1_data_entry_total + 
+    @latest_product_2_data_entry_total + 
+    @latest_product_3_data_entry_total +
+    @latest_product_4_data_entry_total +
+    @latest_product_5_data_entry_total +
+    @latest_product_6_data_entry_total +
+    @latest_product_7_data_entry_total
+  end
 
   def placeorder
     @agrovet = Agrovet.find(params[:id])
