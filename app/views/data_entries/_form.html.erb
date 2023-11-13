@@ -33,6 +33,18 @@
     <%= form.label :product_4_quantity, @products.fourth.name, class: "form-label" %>
     <%= form.number_field :product_4_quantity, class: "form-control" %>
   </div>
+   <div class="mb-3">
+    <%= form.label :product_5_quantity, @products.fifth.name, class: "form-label" %>
+    <%= form.number_field :product_5_quantity, class: "form-control" %>
+  </div>
+   <div class="mb-3">
+    <%= form.label :product_6_quantity, @products.find(6).name, class: "form-label" %>
+    <%= form.number_field :product_6_quantity, class: "form-control" %>
+  </div>
+   <div class="mb-3">
+    <%= form.label :product_7_quantity, @products.find(7).name, class: "form-label" %>
+    <%= form.number_field :product_7_quantity, class: "form-control" %>
+  </div>
 
   <div class="mb-3">
     <%= form.label :money_paid, class: "form-label" %>

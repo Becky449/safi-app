@@ -70,6 +70,8 @@ class DataEntriesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def data_entry_params
-      params.require(:data_entry).permit(:agrovet_id, :product_1_quantity, :product_2_quantity, :product_3_quantity, :product_4_quantity, :money_paid, :money_owed)
+      params.require(:data_entry).permit(:agrovet_id, :product_1_quantity, :product_2_quantity, :product_3_quantity, 
+      :product_4_quantity, :product_5_quantity, :product_6_quantity, 
+      :product_7_quantity, :money_paid, :money_owed)
     end
 end

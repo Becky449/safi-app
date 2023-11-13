@@ -18,12 +18,24 @@
       <td><%= order.product_2_quantity %></td>
     </tr>
     <tr>
-      <td><strong><%= @products.third.name %>:</strong></td>
+      <td><strong><%= @products.third.name %>:</strong></td>+
       <td><%= order.product_3_quantity %></td>
     </tr>
     <tr>
       <td><strong><%= @products.fourth.name %>:</strong></td>
       <td><%= order.product_4_quantity %></td>
+    </tr>
+    <tr>
+      <td><strong><%= @products.fifth.name %>:</strong></td>
+      <td><%= order.product_5_quantity %></td>
+    </tr>
+    <tr>
+      <td><strong><%= @products.find(6).name %>:</strong></td>
+      <td><%= order.product_6_quantity %></td>
+    </tr>
+    <tr>
+      <td><strong><%= @products.find(7).name %>:</strong></td>
+      <td><%= order.product_7_quantity %></td>
     </tr>
     <tr>
       <td><strong>Total Amount:</strong></td>

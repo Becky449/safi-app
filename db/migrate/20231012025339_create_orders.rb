@@ -7,6 +7,10 @@ class CreateOrders < ActiveRecord::Migration[7.0]
       t.integer :product_2_quantity
       t.integer :product_3_quantity
       t.integer :product_4_quantity
+      t.integer :product_5_quantity
+      t.integer :product_6_quantity
+      t.integer :product_7_quantity
+      t.integer :total_amount
       t.string :status
 
       t.timestamps
