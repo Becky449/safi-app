@@ -11,6 +11,7 @@ class Users::SessionsController < Devise::SessionsController
   # POST /resource/sign_in
   def create
     user = User.find_by(email: params[:user][:email])
+    user = User.find_by(email: sign_up_params[:email])
   
     if user && user.valid_password?(params[:user][:password])
       sign_in user
@@ -39,4 +40,11 @@ end
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
+
+  private
+
+  def sign_up_params
+    params.require(:user).permit(:firstname, :lastname, :email, :password, :password_confirmation, :role)
+  end
+
 end
