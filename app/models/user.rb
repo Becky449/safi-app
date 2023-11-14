@@ -8,8 +8,7 @@ class User < ApplicationRecord
           def set_default_role
             if self.email == 'safiorganics1@gmail.com'
               self.role ||= :admin
-            elsif 
-              self.email == 'joycekamande54@gmail.com'
+            elsif self.email == 'joycekamande54@gmail.com'
               self.role ||= :manager
             else
               self.role ||= :salesrep
@@ -29,7 +28,7 @@ class User < ApplicationRecord
           
               if user.manager?
                 redirect_to pages_manager_path
-              elseif user.admin?
+              elsif user.admin?
                 redirect_to pages_admin_path
               else
                 redirect_to pages_salesrep_path
