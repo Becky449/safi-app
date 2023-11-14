@@ -20,6 +20,7 @@ class ApplicationController < ActionController::Base
         # if current_user.admin?
         if resource.admin?
             pages_admin_path
+            
         elsif resource.manager?
             pages_manager_path
         else

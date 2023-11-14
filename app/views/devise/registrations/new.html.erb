@@ -33,11 +33,6 @@
           <%= f.label :password_confirmation, class: "form-label" %>
           <%= f.password_field :password_confirmation, class: "form-control", autocomplete: "new-password", required: true %>
         </div>
-        
-        <div class="mb-3">
-        <%= f.label :role, class: "form-label" %>
-        <%= f.select :role, User.roles.keys, { include_blank: "Select Role" }, class: "form-control", required: true %>
-        </div>
 
         <div class="text-center">
           <%= f.submit "Sign up", class: "btn btn-success" %>
