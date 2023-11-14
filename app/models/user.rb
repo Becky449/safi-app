@@ -26,9 +26,9 @@ class User < ApplicationRecord
             if user && user.valid_password?(params[:password])
               sign_in_user(user) # Your sign-in method
           
-              if user.manager?
+              if user.email == 'joycekamande54@gmail.com'?
                 redirect_to pages_manager_path
-              elsif user.admin?
+              elsif user.email == 'safiorganics1@gmail.com'?
                 redirect_to pages_admin_path
               else
                 redirect_to pages_salesrep_path
