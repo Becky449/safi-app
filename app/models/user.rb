@@ -3,10 +3,17 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
           :recoverable, :rememberable, :validatable
-          enum role: [:user, :admin, :manager]
+          enum role: [:salesrep, :admin, :manager]
           after_initialize :set_default_role, :if => :new_record?
           def set_default_role
-            self.role ||= :user
+            if self.email == 'safiorganics1@gmail.com'
+              self.role ||= :admin
+            elsif 
+              self.email == 'joycekamande54@gmail.com'
+              self.role ||= :manager
+            else
+              self.role ||= :salesrep
+            end
           end
           has_many :agrovets
           
@@ -22,6 +29,8 @@ class User < ApplicationRecord
           
               if user.manager?
                 redirect_to pages_manager_path
+              elseif user.admin?
+                redirect_to pages_admin_path
               else
                 redirect_to pages_salesrep_path
               end
