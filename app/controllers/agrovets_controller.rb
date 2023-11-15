@@ -139,6 +139,6 @@ class AgrovetsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def agrovet_params
-      params.require(:agrovet).permit(:name, :location, :owner_name, :owner_phone, :owner_email, :user_id)
+      params.require(:agrovet).permit(:name, :location, :owner_name, :owner_phone, :owner_email, :contact_name, :contact_phone,:user_id)
     end
 end

@@ -3,32 +3,25 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
           :recoverable, :rememberable, :validatable
-          enum role: [:salesrep, :admin, :manager]
+          enum role: [:user, :admin, :manager]
           after_initialize :set_default_role, :if => :new_record?
           def set_default_role
-            if self.email == 'safiorganics1@gmail.com'
-              self.role ||= :admin
-            elsif self.email == 'joycekamande54@gmail.com'
-              self.role ||= :manager
-            else
-              self.role ||= :salesrep
-            end
+            self.role ||= :user
           end
           has_many :agrovets
           
           validates :firstname, presence: true, uniqueness: { case_sensitive: false }, length: {maximum: 20}
           validates :lastname, presence: true, uniqueness: { case_sensitive: false }, length: {maximum: 20}   
           
-          def sign_in 
+          def sign_in
+            # Your authentication logic to verify the user's identity (e.g., email and password)
             user = User.find_by(email: params[:email])
           
             if user && user.valid_password?(params[:password])
               sign_in_user(user) # Your sign-in method
           
-              if user.email == 'joycekamande54@gmail.com'
+              if user.manager?
                 redirect_to pages_manager_path
-              elsif user.email == 'safiorganics1@gmail.com'
-                redirect_to pages_admin_path
               else
                 redirect_to pages_salesrep_path
               end
