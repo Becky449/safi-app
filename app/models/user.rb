@@ -19,16 +19,15 @@ class User < ApplicationRecord
           validates :firstname, presence: true, uniqueness: { case_sensitive: false }, length: {maximum: 20}
           validates :lastname, presence: true, uniqueness: { case_sensitive: false }, length: {maximum: 20}   
           
-          def sign_in
-            # Your authentication logic to verify the user's identity (e.g., email and password)
+          def sign_in 
             user = User.find_by(email: params[:email])
           
             if user && user.valid_password?(params[:password])
               sign_in_user(user) # Your sign-in method
           
-              if user.email == 'joycekamande54@gmail.com'?
+              if user.email == 'joycekamande54@gmail.com'
                 redirect_to pages_manager_path
-              elsif user.email == 'safiorganics1@gmail.com'?
+              elsif user.email == 'safiorganics1@gmail.com'
                 redirect_to pages_admin_path
               else
                 redirect_to pages_salesrep_path
