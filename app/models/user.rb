@@ -4,10 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
           :recoverable, :rememberable, :validatable
           enum role: [:user, :admin, :manager]
-          # after_initialize :set_default_role, :if => :new_record?
-          # def set_default_role
-          #   self.role ||= :user
-          # end
+          after_initialize :set_default_role, :if => :new_record?
+          def set_default_role
+            self.role ||= :user
+          end
           has_many :agrovets
           
           validates :firstname, presence: true, uniqueness: { case_sensitive: false }, length: {maximum: 20}
@@ -20,7 +20,7 @@ class User < ApplicationRecord
             if user && user.valid_password?(params[:password])
               sign_in_user(user) # Your sign-in method
           
-              if user.email == 'safiorganics1@gmail.com'
+              if user.admin?
                 redirect_to pages_admin_path
               elsif user.manager?
                 redirect_to pages_manager_path
