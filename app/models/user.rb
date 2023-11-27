@@ -20,7 +20,7 @@ class User < ApplicationRecord
             if user && user.valid_password?(params[:password])
               sign_in_user(user) # Your sign-in method
           
-              if user.admin?
+              if user.email == 'safiorganics1@gmail.com'?
                 redirect_to pages_admin_path
               elsif user.manager?
                 redirect_to pages_manager_path
