@@ -12,23 +12,45 @@ class User < ApplicationRecord
           
           validates :firstname, presence: true, uniqueness: { case_sensitive: false }, length: {maximum: 20}
           validates :lastname, presence: true, uniqueness: { case_sensitive: false }, length: {maximum: 20}   
+
+          def admin?
+            role == 1
+          end
+        
+          def manager?
+            role == 2
+          end
+        
+          def user?
+            role == 0
+          end
           
-          def sign_in
-            # Your authentication logic to verify the user's identity (e.g., email and password)
-            user = User.find_by(email: params[:email])
+          # def sign_in
+          #   # Your authentication logic to verify the user's identity (e.g., email and password)
+          #   user = User.find_by(email: params[:email])
           
-            if user && user.valid_password?(params[:password])
-              sign_in_user(user) # Your sign-in method
+          #   if user && user.valid_password?(params[:password])
+          #     sign_in_user(user) # Your sign-in method
           
-              if user.admin?
-                redirect_to pages_admin_path
-              elsif user.manager?
-                redirect_to pages_manager_path
-              else
-                redirect_to pages_salesrep_path
-              end
-            else
-              # Handle invalid login
+          #     if user.admin?
+          #       redirect_to pages_admin_path
+          #     elsif user.manager?
+          #       redirect_to pages_manager_path
+          #     else
+          #       redirect_to pages_salesrep_path
+          #     end
+          #   else
+          #     # Handle invalid login
+          #   end
+          # end
+          def after_sign_in_path_for(resource)
+            if resource.admin?
+              pages_admin_path
+            elsif resource.manager?
+              pages_manager_path
+            else resource.user?
+              pages_salesrep_path
             end
           end
+        
 end
