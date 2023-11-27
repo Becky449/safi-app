@@ -15,11 +15,11 @@ class Users::SessionsController < Devise::SessionsController
     if user && user.valid_password?(params[:user][:password])
       sign_in user
   
-      if user.role == 'admin'
+      if user.role == 1
         redirect_to pages_admin_path
-      elsif user.role == 'salesrep'
+      elsif user.role == 0
         redirect_to pages_salesrep_path
-      elsif user.role == 'manager'
+      elsif user.role == 2
         redirect_to pages_manager_path
       else
         flash[:alert] = 'Invalid email or password'
