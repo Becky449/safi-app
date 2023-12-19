@@ -12,6 +12,9 @@ class User < ApplicationRecord
           
           validates :firstname, presence: true, uniqueness: { case_sensitive: false }, length: {maximum: 20}
           validates :lastname, presence: true, uniqueness: { case_sensitive: false }, length: {maximum: 20}   
+          validates :password, presence: true, length: { minimum: 6 }
+          validates_format_of :password, with: /\A(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^a-zA-Z\d]).{8,}\z/,
+                      message: "must contain at least one uppercase letter, one lowercase letter, one digit, and one special character"
           
           def sign_in
             # Your authentication logic to verify the user's identity (e.g., email and password)

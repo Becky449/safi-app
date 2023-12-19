@@ -24,7 +24,16 @@
         <div class="mb-3">
           <%= f.label :password, class: "form-label" %>
           <% if @minimum_password_length %>
-            <small>(<%= @minimum_password_length %> characters minimum)</small>
+            <small class="text-muted">
+             must contain:
+      <ul>
+      <li>At least (<%= @minimum_password_length %> characters minimum)</li>
+      <li>At least one uppercase letter</li>
+      <li>At least one lowercase letter</li>
+      <li>At least one digit</li>
+      <li>At least one special character</li>
+    </ul>
+         </small>
           <% end %>
           <%= f.password_field :password, class: "form-control", autocomplete: "new-password", required: true %>
         </div>
