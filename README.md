@@ -1,7 +1,7 @@
 <a name="readme-top"></a>
 
 <div align="center">
-  <h3><b>Recipe App</b></h3>
+  <h3><b>Sales Monitoring app</b></h3>
 </div>
 
 <!-- TABLE OF CONTENTS -->
@@ -9,7 +9,7 @@
 # 📗 Table of Contents
 
 - [📗 Table of Contents](#-table-of-contents)
-- [Recipe App ](#Recipe-app-ROR-)
+- [Sales Monitoring app ](#safi-app-)
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
   - [Key Features ](#key-features-)
@@ -28,7 +28,7 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# Recipe App <a name="about-project"></a>
+# Sales Monitoring app <a name="about-project"></a>
 
 This is a sales tracking and monitoring app for a Fertilizer manufacturing company. Sales representatives can create stores known as Agrovets and monitor the products in the store. They can also place orders for more products from the company. On the backend, all the necessary calculations are in order. This project was built using Ruby on Rails.
 
